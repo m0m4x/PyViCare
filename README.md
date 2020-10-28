@@ -16,6 +16,14 @@ from PyViCare.PyViCareGazBoiler import GazBoiler # gaz boiler
 from PyViCare.PyViCareHeatPump import HeatPump # heat pump
 ```
 
+## Version 0.1.0 (Forked m0m4x)
+Add support for Heating Solar Panels from Viessmann.
+
+```
+from PyViCare.PyViCareSolar import Solar # solar panelz                  
+```
+
+
 ## Basic usage
 Simple example:
 ```
@@ -53,6 +61,28 @@ print(t.activateProgram("comfort"))
 print(t.setDomesticHotWaterTemperature(59))
 print(t.activateProgram("comfort"))
 print(t.deactivateComfort())
+```
+
+Solar Panels example:
+```
+import sys
+import logging
+sys.path.insert(0, 'PyViCare')
+from PyViCare.PyViCareSolar import Solar # solar panelz   
+
+t=Solar("email@domain","password","token.save")
+t.getSolarActive()                   
+t.getSolarCircuitStatus()            
+t.getSolarRechargeSuppressionStatus()
+t.getSolarChargingActive()           
+t.getSolarCollectorTemperature()     
+t.getSolarWaterTemperature()         
+t.getSolarProductionToday()          
+t.getSolarProductionDays()           
+t.getSolarProductionWeeks()          
+t.getSolarProductionYears()          
+t.getSolarcumulativeProduced()       
+t.getSolarHours()  
 ```
 
 ## Postman example
